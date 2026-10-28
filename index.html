@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d0b">
+<meta name="description" content="DISCIPLINA — treinos, hábitos, alimentação e progresso ao teu ritmo.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>DISCIPLINA — O teu progresso</title>
+<style>
+:root{--bg:#0b0d0b;--panel:#141714;--panel2:#1b201b;--line:#2a3129;--text:#f1f5ed;--muted:#9ca79a;--lime:#d7ff62;--lime2:#b5e841;--orange:#ffb86b;--blue:#8bd5ff;--radius:22px}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 100% 0%,#1c2916 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.top{padding:calc(18px + env(safe-area-inset-top)) 18px 8px;max-width:760px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:950;letter-spacing:.12em;font-size:20px}.brand span{color:var(--lime)}.tag{font-size:11px;letter-spacing:.13em;color:var(--muted);margin-top:2px}.avatar{width:42px;height:42px;border-radius:15px;border:1px solid #3a4630;background:#20291a;color:var(--lime);font-weight:800}
+main{max-width:760px;margin:auto;padding:12px 16px 28px}.page{display:none;animation:fade .22s ease}.page.active{display:block}@keyframes fade{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:800}.hero{padding:23px 21px 20px;border:1px solid #35422a;border-radius:28px;background:linear-gradient(140deg,#1d2917 0%,#141a12 58%,#151916 100%);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #46572f;border-radius:50%;right:-76px;top:-65px;box-shadow:0 0 0 24px #d7ff6208,0 0 0 48px #d7ff6205}.hero h1{font-size:clamp(30px,8vw,44px);line-height:1.03;letter-spacing:-.055em;margin:11px 0 10px;max-width:440px}.hero h1 em{font-style:normal;color:var(--lime)}.sub{color:#b7c0b2;max-width:450px;margin:0 0 20px}.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:850;background:var(--lime);color:#151a0d}.btn.secondary{background:#242a22;color:var(--text);border:1px solid #343d31}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.btn.small{padding:8px 11px;font-size:12px;border-radius:11px}.btn.full{width:100%}.actions{display:flex;gap:9px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:14px 0}.stat,.card{background:linear-gradient(150deg,#171b17,#121512);border:1px solid var(--line);border-radius:var(--radius);padding:16px}.stat .num{font-size:27px;font-weight:900;letter-spacing:-.04em;margin:5px 0}.muted{color:var(--muted)}.tiny{font-size:12px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 2px 12px}.sectionhead h2{margin:0;font-size:20px;letter-spacing:-.035em}.sectionhead button{font-size:12px;color:var(--lime);background:none;border:0;font-weight:800}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:12px 0}.daypill{min-width:0;padding:10px 2px;border:1px solid var(--line);border-radius:13px;background:#141714;color:var(--muted);text-align:center}.daypill b{display:block;font-size:12px;color:var(--text)}.daypill span{font-size:10px}.daypill.selected{background:var(--lime);border-color:var(--lime);color:#18200d}.daypill.selected b{color:#18200d}.daypill.done{border-color:#7fa62d}
+.workouttop{display:flex;gap:13px;align-items:center}.workouticon{width:54px;height:54px;border-radius:17px;background:#28331e;display:grid;place-items:center;font-size:25px;flex-shrink:0}.workouttop h3{margin:0 0 3px;font-size:17px}.exercise{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #262d25}.exercise:last-child{border-bottom:0}.check{appearance:none;width:24px;height:24px;border:1.5px solid #58634f;border-radius:8px;flex-shrink:0;background:#101310}.check:checked{background:var(--lime);border-color:var(--lime)}.check:checked:after{content:"✓";display:block;color:#17200d;font-weight:1000;text-align:center;line-height:21px}.exname{font-weight:750}.exmeta{font-size:12px;color:var(--muted);margin-top:2px}.exercise .edit{margin-left:auto;border:0;background:transparent;color:var(--muted);padding:6px}
+.progressbar{height:8px;background:#30372d;border-radius:99px;overflow:hidden}.progressbar span{display:block;height:100%;background:var(--lime);border-radius:99px;transition:width .2s}.feature{display:flex;gap:13px;align-items:flex-start}.featureico{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:#222a1d;font-size:21px;flex-shrink:0}.feature h3{margin:0 0 5px;font-size:15px}.feature p{margin:0;color:var(--muted);font-size:13px}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:20;padding:9px 9px calc(9px + env(safe-area-inset-bottom));background:#0e100eee;backdrop-filter:blur(20px);border-top:1px solid #252b24;display:flex;justify-content:center}.navinner{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(6,1fr);gap:3px}.navbtn{border:0;background:transparent;color:#8f998b;border-radius:13px;padding:8px 1px 6px;font-size:10px;font-weight:700;display:flex;align-items:center;flex-direction:column;gap:4px}.navbtn .ico{font-size:19px;line-height:1.1}.navbtn.active{color:var(--lime);background:#20271a}
+.pagetitle{font-size:30px;letter-spacing:-.055em;margin:5px 0 6px}.lead{color:var(--muted);margin:0 0 18px}.chip{display:inline-flex;padding:5px 9px;border-radius:99px;background:#252c21;color:var(--lime);font-size:11px;font-weight:800}
+textarea,input,select{width:100%;background:#0e110e;border:1px solid #343c31;color:var(--text);border-radius:13px;padding:12px}.field{margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);margin:0 0 7px}.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}
+.meal-photo{border:1px dashed #48533f;border-radius:20px;min-height:130px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:#121612;overflow:hidden}.meal-photo img{max-width:100%;max-height:250px;border-radius:14px}.meal-photo input{display:none}.meal-label{color:var(--lime);font-weight:800}.notice{font-size:12px;color:#b8c2b3;background:#1b2118;border:1px solid #303a2a;border-radius:14px;padding:12px}.mealentry{padding:12px 0;border-bottom:1px solid var(--line)}.mealentry:last-child{border:0}.habit{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--line)}.habit:last-child{border:0}.habit .check{width:23px;height:23px}.habit small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.chart{height:130px;display:flex;align-items:end;gap:9px;padding:10px 0}.barcol{flex:1;text-align:center;font-size:10px;color:var(--muted)}.bar{background:#3b4d2b;border-radius:8px 8px 3px 3px;min-height:4px;margin:0 auto 7px;width:min(100%,32px)}.bar.today{background:var(--lime)}
+.locked{opacity:.55}.locked .chip{color:#b8c1b3}.empty{text-align:center;padding:24px 12px;color:var(--muted)}.divider{height:1px;background:var(--line);margin:16px 0}.toast{position:fixed;z-index:40;bottom:100px;left:50%;transform:translateX(-50%);background:var(--lime);color:#151a0d;padding:11px 17px;border-radius:13px;font-weight:800;box-shadow:0 8px 30px #0007;display:none;max-width:90%;text-align:center}
+dialog{width:min(92%,480px);border:1px solid #3b4535;border-radius:22px;background:#171b16;color:var(--text);padding:20px;box-shadow:0 20px 70px #000b}dialog::backdrop{background:#0009;backdrop-filter:blur(4px)}dialog h3{margin:0 0 12px}.dialogactions{display:flex;gap:8px;margin-top:15px}.dialogactions>*{flex:1}
+footer{text-align:center;color:#6f796b;font-size:11px;padding:24px 0 8px}
+@media(min-width:600px){main{padding-top:20px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:30px}.two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.two .sectionhead{margin-top:0}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div><div class="brand">DISCIPLINA<span>.</span></div><div class="tag">CONSISTÊNCIA, NÃO PERFEIÇÃO.</div></div>
+ <button class="avatar" id="profileShortcut" aria-label="Abrir perfil">D.</button>
+</header>
+<main>
+<section class="page active" id="home">
+ <div class="hero">
+  <div class="eyebrow" id="todayLabel">O TEU DIA, AO TEU RITMO</div>
+  <h1>Faz o que podes.<br><em>Repete amanhã.</em></h1>
+  <p class="sub">Um plano simples para ganhares força, criares hábitos e acompanhares o teu progresso — sem comparações.</p>
+  <div class="actions"><button class="btn" onclick="go('training')">Ver treino de hoje ↗</button><button class="btn secondary" onclick="go('habits')">Hábitos diários</button></div>
+ </div>
+ <div class="grid">
+  <div class="stat"><div class="muted tiny">TREINOS CONCLUÍDOS</div><div class="num" id="statWorkouts">0</div><div class="tiny muted">desde que começaste</div></div>
+  <div class="stat"><div class="muted tiny">HÁBITOS DE HOJE</div><div class="num" id="statHabits">0/5</div><div class="tiny muted">pequenos passos</div></div>
+  <div class="stat"><div class="muted tiny">TEMPO ATIVO</div><div class="num" id="statMinutes">0 <small style="font-size:12px">min</small></div><div class="tiny muted">estimativa registada</div></div>
+  <div class="stat"><div class="muted tiny">DIAS EM MOVIMENTO</div><div class="num" id="statActive">0</div><div class="tiny muted">não precisa de ser perfeito</div></div>
+ </div>
+ <div class="sectionhead"><h2>Esta semana</h2><button onclick="go('progress')">Ver progresso →</button></div>
+ <div class="week" id="homeWeek"></div>
+ <div class="card" id="homeWorkout"></div>
+ <div class="sectionhead"><h2>O teu painel</h2><span class="tiny muted">Tudo num só lugar</span></div>
+ <div class="grid">
+  <div class="card feature" onclick="go('food')" style="cursor:pointer"><div class="featureico">🥗</div><div><h3>Diário alimentar</h3><p>Regista refeições e aprende sobre equilíbrio.</p></div></div>
+  <div class="card feature" onclick="go('habits')" style="cursor:pointer"><div class="featureico">🌱</div><div><h3>Hábitos</h3><p>Água, sono, movimento e pausas.</p></div></div>
+  <div class="card feature" onclick="go('training')" style="cursor:pointer"><div class="featureico">🏋️</div><div><h3>Treinos</h3><p>Exercícios editáveis e dias organizados.</p></div></div>
+  <div class="card feature" onclick="go('profile')" style="cursor:pointer"><div class="featureico">⚙️</div><div><h3>Personalizar</h3><p>Objetivos, segurança e cópias de segurança.</p></div></div>
+ </div>
+ <div class="sectionhead"><h2>Treinar fora de casa</h2><button onclick="go('explore')">Explorar →</button></div><div class="card feature" onclick="go('explore')" style="cursor:pointer"><div class="featureico">📍</div><div><h3>Locais perto de ti</h3><p>Parques, piscinas, ginásios e percursos num mapa.</p></div></div>
+ <footer>DISCIPLINA · A tua jornada, ao teu ritmo.</footer>
+</section>
+
+<section class="page" id="training">
+ <div class="eyebrow">MOVIMENTO COM INTENÇÃO</div><h1 class="pagetitle">Os teus treinos</h1><p class="lead">Marca cada exercício. Quando acabares, conclui o dia para desbloquear o seguinte.</p>
+ <div class="week" id="trainWeek"></div>
+ <div class="card" id="workoutCard"></div>
+ <div class="notice" style="margin-top:13px">💡 Faz as repetições com controlo e descansa quando precisares. Se sentires dor aguda, tonturas ou mal-estar, para. A técnica vale mais do que a quantidade.</div>
+ <div class="sectionhead"><h2>Biblioteca de exercícios</h2><button onclick="addExercise()">+ Adicionar</button></div>
+ <div class="card" id="exerciseLibrary"></div>
+</section>
+
+<section class="page" id="food">
+ <div class="eyebrow">ALIMENTAÇÃO SEM OBSESSÕES</div><h1 class="pagetitle">O teu prato, com equilíbrio</h1><p class="lead">Regista o que comeste e recebe ideias práticas. Não há alimentos proibidos nem necessidade de contar calorias.</p>
+ <div class="card"><h3 style="margin-top:0">📸 Fotografia da refeição</h3>
+  <label class="meal-photo" for="mealFile" id="mealPreview"><span><span style="font-size:30px">＋</span><br><span class="meal-label">Tirar ou escolher fotografia</span><br><span class="tiny muted">A imagem fica no teu dispositivo</span></span></label>
+  <input id="mealFile" type="file" accept="image/*" capture="environment">
+  <div class="notice" style="margin-top:12px">A fotografia fica guardada no diário, mas esta versão ainda não reconhece automaticamente os alimentos. Para isso, será necessário ligar um serviço de IA de forma segura.</div>
+  <div class="field"><label for="mealName">O que comeste? (podes escrever vários alimentos)</label><textarea id="mealName" rows="3" placeholder="Ex.: arroz, frango, cenoura e uma maçã"></textarea></div>
+  <div class="field"><label for="mealTime">Tipo de refeição</label><select id="mealTime"><option>Pequeno-almoço</option><option>Almoço</option><option>Lanche</option><option>Jantar</option><option>Outro</option></select></div>
+  <div class="field"><label for="mealNotes">Como te sentiste / contexto (opcional)</label><textarea id="mealNotes" rows="2" placeholder="Ex.: tinha treino depois da escola; fiquei satisfeito…"></textarea></div>
+  <button class="btn full" onclick="analyzeMeal()">Obter sugestões e guardar</button><div id="mealFeedback" style="display:none;margin-top:14px"></div>
+ </div>
+ <div class="sectionhead"><h2>O teu diário</h2><button onclick="renderMeals()">Atualizar</button></div><div class="card" id="mealList"></div>
+ <div class="sectionhead"><h2>Guia de equilíbrio</h2></div><div class="grid">
+  <div class="card"><div class="featureico">🌈</div><h3>Variedade</h3><p class="tiny muted">Fruta, legumes, cereais ou tubérculos e diferentes fontes de proteína ao longo do dia.</p></div>
+  <div class="card"><div class="featureico">⚡</div><h3>Energia</h3><p class="tiny muted">Comer o suficiente para estudar, crescer, recuperar e fazer as atividades de que gostas.</p></div>
+  <div class="card"><div class="featureico">💧</div><h3>Hidratação</h3><p class="tiny muted">Bebe água regularmente e ajusta ao calor e à atividade.</p></div>
+  <div class="card"><div class="featureico">🍽️</div><h3>Flexibilidade</h3><p class="tiny muted">Uma refeição isolada não define a tua saúde. Não precisas de compensar o que comeste.</p></div>
+ </div><div class="notice">As sugestões são educativas e gerais, não um diagnóstico nem um plano nutricional individual. Durante o crescimento, evita dietas restritivas e metas de calorias sem orientação profissional.</div>
+</section>
+<section class="page" id="habits">
+ <div class="eyebrow">O BÁSICO, BEM FEITO</div><h1 class="pagetitle">Hábitos diários</h1><p class="lead">Não tens de cumprir tudo. Escolhe hábitos realistas e volta a tentar amanhã.</p>
+ <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div><div class="tiny muted">PROGRESSO DE HOJE</div><div class="num" style="font-size:29px;margin:4px 0" id="habitProgress">0 de 5</div></div><div class="featureico">🌿</div></div><div class="progressbar"><span id="habitBar" style="width:0%"></span></div><div id="habitList" style="margin-top:8px"></div><button class="btn secondary full" style="margin-top:14px" onclick="resetHabits()">Recomeçar hábitos de hoje</button></div>
+ <div class="sectionhead"><h2>Pequenos lembretes</h2></div>
+ <div class="card">
+  <div class="feature"><div class="featureico">😴</div><div><h3>Protege o sono</h3><p>Adolescentes precisam geralmente de 8–10 horas por noite. Mantém uma rotina possível e reduz ecrãs antes de dormir, se te ajudar.</p></div></div><div class="divider"></div>
+  <div class="feature"><div class="featureico">🚶</div><div><h3>Conta também o movimento normal</h3><p>Caminhar, brincar, andar de bicicleta e praticar desporto contam. Não tens de fazer um treino intenso todos os dias.</p></div></div><div class="divider"></div>
+  <div class="feature"><div class="featureico">🧠</div><div><h3>Descansar faz parte</h3><p>Faz pausas nos estudos, fala com pessoas em quem confias e adapta o plano aos dias mais ocupados.</p></div></div>
+ </div>
+</section>
+
+<section class="page" id="explore">
+ <div class="eyebrow">SAI, MEXE-TE, EXPLORA</div><h1 class="pagetitle">Treinar por perto</h1><p class="lead">Descobre espaços para te movimentares. Confirma horários, acessos, preços e regras antes de ires.</p>
+ <div class="card">
+  <div class="feature"><div class="featureico">🌳</div><div><h3>Parques e espaços verdes</h3><p>Para caminhar, correr de forma confortável, alongar ou fazer exercícios com peso corporal.</p><p><a href="https://www.google.com/maps/search/parques+perto+de+mim/" target="_blank" rel="noopener" style="color:var(--lime);font-weight:800">Abrir parques no mapa ↗</a></p></div></div><div class="divider"></div>
+  <div class="feature"><div class="featureico">🏊</div><div><h3>Piscinas</h3><p>Uma opção para movimento de baixo impacto, com supervisão e regras adequadas à idade.</p><p><a href="https://www.google.com/maps/search/piscinas+perto+de+mim/" target="_blank" rel="noopener" style="color:var(--lime);font-weight:800">Encontrar piscinas ↗</a></p></div></div><div class="divider"></div>
+  <div class="feature"><div class="featureico">🏋️</div><div><h3>Ginásios e clubes</h3><p>Se és menor, confirma com um adulto de confiança as condições para a tua idade e se existe acompanhamento qualificado.</p><p><a href="https://www.google.com/maps/search/ginásios+perto+de+mim/" target="_blank" rel="noopener" style="color:var(--lime);font-weight:800">Encontrar ginásios ↗</a></p></div></div><div class="divider"></div>
+  <div class="feature"><div class="featureico">🚶</div><div><h3>Percursos para caminhar</h3><p>Escolhe percursos públicos e seguros, de preferência durante o dia, e avisa alguém de confiança sobre os teus planos.</p><p><a href="https://www.google.com/maps/search/percurso+pedestre+perto+de+mim/" target="_blank" rel="noopener" style="color:var(--lime);font-weight:800">Ver percursos ↗</a></p></div></div>
+ </div><div class="notice" style="margin-top:14px">Os mapas são um serviço externo e podem pedir acesso à tua localização. A DISCIPLINA não acompanha a tua localização em segundo plano.</div>
+ <div class="sectionhead"><h2>Treino em casa</h2></div><div class="card feature"><div class="featureico">🏠</div><div><h3>Sem equipamento</h3><p>O teu plano de peso corporal continua disponível no separador Treinos. Escolhe variantes confortáveis e descansa quando precisares.</p><button class="btn secondary small" onclick="go('training')">Abrir treinos</button></div></div>
+</section>
+<section class="page" id="progress">
+ <div class="eyebrow">A TUA EVOLUÇÃO</div><h1 class="pagetitle">Progresso real</h1><p class="lead">O objetivo é perceber a consistência, não julgar o teu corpo.</p>
+ <div class="grid"><div class="stat"><div class="tiny muted">TREINOS CONCLUÍDOS</div><div class="num" id="progDone">0</div></div><div class="stat"><div class="tiny muted">MINUTOS REGISTADOS</div><div class="num" id="progMinutes">0</div></div></div>
+ <div class="card"><div class="sectionhead" style="margin-top:0"><h2>Últimos 7 dias</h2><span class="tiny muted">atividade registada</span></div><div class="chart" id="activityChart"></div><div class="tiny muted">Só são apresentados os dados que a aplicação guardou neste dispositivo.</div></div>
+ <div class="sectionhead"><h2>Conquistas</h2></div><div class="grid" id="achievements"></div>
+ <div class="notice">O progresso pode ser exportado nas definições. Se limpares os dados do Safari ou mudares de dispositivo, os registos locais podem desaparecer. Faz cópias de segurança regularmente.</div>
+</section>
+
+<section class="page" id="profile">
+ <div class="eyebrow">A TUA APLICAÇÃO, AS TUAS REGRAS</div><h1 class="pagetitle">Personalizar</h1><p class="lead">Ajusta o plano e mantém os teus dados sob controlo.</p>
+ <div class="card">
+  <h3 style="margin-top:0">O teu perfil</h3>
+  <div class="field"><label for="userName">Como queres que te chamemos?</label><input id="userName" placeholder="O teu nome (opcional)"></div>
+  <div class="field"><label for="ageGroup">Faixa etária</label><select id="ageGroup"><option value="under13">Até aos 12 anos</option><option value="teen">13–17 anos</option><option value="adult">18 anos ou mais</option></select></div>
+  <div class="field"><label for="goal">O que queres trabalhar?</label><select id="goal"><option value="strength">Força e controlo</option><option value="fitness">Condição física geral</option><option value="habit">Criar consistência</option><option value="sport">Apoio à prática desportiva</option></select></div>
+  <button class="btn full" onclick="saveProfile()">Guardar perfil</button>
+ </div>
+ <div class="sectionhead"><h2>Segurança e recomendações</h2></div>
+ <div class="card">
+  <div class="feature"><div class="featureico">🧒</div><div><h3>Treino adequado à idade</h3><p>Esta versão usa uma rotina leve de peso corporal e não prescreve cargas máximas. Crianças devem privilegiar brincadeira e movimento variado com supervisão; adolescentes podem fazer treino de força progressivo, com técnica, descanso e orientação adequada. Adultos devem adaptar a atividade à saúde e experiência. Não existe um plano único para todas as pessoas.</p></div></div>
+  <div class="divider"></div><div class="feature"><div class="featureico">🛡️</div><div><h3>Usa o bom senso</h3><p>Se tens uma lesão, condição de saúde, dor persistente ou dúvidas sobre o exercício, pede ajuda a um adulto de confiança e a um profissional de saúde. A aplicação não substitui aconselhamento médico, fisioterapia ou nutrição.</p></div></div>
+ </div>
+ <div class="sectionhead"><h2>Os teus dados</h2></div>
+ <div class="card">
+  <p class="muted tiny">Os dados são guardados localmente no navegador. Não existe conta, sincronização ou servidor nesta versão.</p>
+  <div class="actions"><button class="btn secondary" onclick="exportData()">Exportar cópia</button><button class="btn secondary" onclick="document.getElementById('importFile').click()">Importar cópia</button><button class="btn ghost" onclick="resetApp()">Repor aplicação</button></div>
+  <input id="importFile" type="file" accept="application/json" style="display:none">
+ </div>
+ <footer>DISCIPLINA v1.0 · Protótipo pessoal · Feito para evoluir.</footer>
+</section>
+</main>
+<nav class="nav"><div class="navinner">
+ <button class="navbtn active" data-page="home" onclick="go('home')"><span class="ico">⌂</span>Início</button>
+ <button class="navbtn" data-page="training" onclick="go('training')"><span class="ico">✦</span>Treinos</button>
+ <button class="navbtn" data-page="food" onclick="go('food')"><span class="ico">◉</span>Comida</button>
+ <button class="navbtn" data-page="habits" onclick="go('habits')"><span class="ico">♧</span>Hábitos</button>
+ <button class="navbtn" data-page="explore" onclick="go('explore')"><span class="ico">⌖</span>Locais</button>
+ <button class="navbtn" data-page="progress" onclick="go('progress')"><span class="ico">↗</span>Progresso</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+<dialog id="exerciseDialog"><form method="dialog" id="exerciseForm"><h3 id="dialogTitle">Editar exercício</h3><input type="hidden" id="editDay"><input type="hidden" id="editId"><div class="field"><label for="exTitle">Exercício</label><input id="exTitle" required maxlength="70" placeholder="Ex.: agachamentos"></div><div class="row"><div class="field"><label for="exSets">Séries</label><input id="exSets" type="number" min="1" max="10" value="3" required></div><div class="field"><label for="exReps">Repetições/tempo</label><input id="exReps" required maxlength="40" value="8–10"></div></div><div class="field"><label for="exNote">Nota (opcional)</label><input id="exNote" maxlength="100" placeholder="Ex.: com controlo"></div><div class="dialogactions"><button class="btn secondary" type="button" onclick="deleteFromDialog()">Apagar</button><button class="btn" type="submit">Guardar</button></div><button class="btn ghost full" style="margin-top:8px" type="button" onclick="document.getElementById('exerciseDialog').close()">Cancelar</button></form></dialog>
+<script>
+const $=id=>document.getElementById(id);
+const dayNames=['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'];
+const dayShort=['SEG','TER','QUA','QUI','SEX','SÁB','DOM'];
+const defaultPlan=[
+ {title:'Força geral',subtitle:'Parte superior e core',icon:'💪',minutes:20,items:[['Flexões normais','3','6–10'],['Flexões com joelhos apoiados','2','8–12'],['Prancha com toques nos ombros','3','20 s'],['Dead bug','3','10 (5 por lado)']]},
+ {title:'Recuperação ativa',subtitle:'Movimento leve e mobilidade',icon:'🚶',minutes:10,items:[['Caminhada leve','1','10 min'],['Mobilidade confortável','1','3–5 min']]},
+ {title:'Pernas e core',subtitle:'Controlo e estabilidade',icon:'🦵',minutes:22,items:[['Aquecimento leve','1','3 min'],['Agachamentos com pausa','3','12–15'],['Afundos alternados','2','8 por perna'],['Ponte de glúteos','3','15'],['Elevações de pernas deitado','2','8–12'],['Prancha','2','20–30 s']]},
+ {title:'Recuperação ativa',subtitle:'Dá espaço ao corpo para recuperar',icon:'🌿',minutes:10,items:[['Caminhada confortável','1','5–10 min'],['Mobilidade leve','1','3–5 min']]},
+ {title:'Corpo inteiro',subtitle:'Treino curto e equilibrado',icon:'⚡',minutes:20,items:[['Flexões (variante adequada)','3','6–10'],['Agachamentos','3','12–15'],['Afundos alternados','2','8 por perna'],['Ponte de glúteos','2','15'],['Prancha','2','20–30 s']]},
+ {title:'Opcional e leve',subtitle:'Só se te sentires bem',icon:'☀️',minutes:12,items:[['Agachamentos','2','12'],['Flexões (variante adequada)','2','6–8'],['Dead bug','2','10']]},
+ {title:'Descanso',subtitle:'Recuperar também é progresso',icon:'🌙',minutes:0,items:[['Descanso e lazer','1','Ao teu ritmo']]}
+];
+const defaultHabits=[['Beber água regularmente','Pequenos goles ao longo do dia'],['Fazer algum movimento','Caminhada, brincadeira ou desporto'],['Fazer pausas dos ecrãs','Levantar e descansar os olhos'],['Comer refeições variadas','Sem regras rígidas nem compensações'],['Preparar uma boa noite de sono','Criar uma rotina tranquila']];
+const todayKey=()=>new Date().toLocaleDateString('en-CA');
+const weekStart=()=>{let d=new Date();d.setHours(0,0,0,0);let n=(d.getDay()+6)%7;d.setDate(d.getDate()-n);return d};
+const dateKey=(d)=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const uid=()=>Math.random().toString(36).slice(2,10);
+let state;
+function fresh(){return {version:1,plan:defaultPlan.map((d,i)=>({...d,items:d.items.map(x=>({id:uid(),name:x[0],sets:x[1],reps:x[2],note:''}))})),done:{},habitChecks:{},habits:defaultHabits.map(x=>({id:uid(),name:x[0],note:x[1]})),meals:[],profile:{name:'',ageGroup:'teen',goal:'strength'},minutesByDate:{}}}
+function load(){try{let s=JSON.parse(localStorage.getItem('disciplina-pro-v1'));if(s&&s.plan&&s.habits)return s}catch(e){}return fresh()}
+state=load();let selectedDay=(new Date().getDay()+6)%7;let pendingPhoto='';
+function save(){localStorage.setItem('disciplina-pro-v1',JSON.stringify(state));renderStats()}
+function toast(msg){let t=$('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',2400)}
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===page));if(page==='training')renderTraining();if(page==='home')renderHome();if(page==='food')renderMeals();if(page==='habits')renderHabits();if(page==='progress')renderProgress();if(page==='profile')loadProfile();window.scrollTo({top:0,behavior:'smooth'})}
+function dayDate(i){let d=weekStart();d.setDate(d.getDate()+i);return d}
+function isUnlocked(i){for(let j=0;j<i;j++)if(!state.done[dateKey(dayDate(j))])return false;return true}
+function dayDone(i){let d=state.plan[i];return !!state.done[dateKey(dayDate(i))]}
+function checkedCount(i){let key=dateKey(dayDate(i));return (state.plan[i]?.items||[]).filter(x=>state.doneExercises?.[key]?.includes(x.id)).length}
+function allChecked(i){let items=state.plan[i].items;return items.length>0&&checkedCount(i)===items.length}
+function renderWeek(target){$(target).innerHTML=dayNames.map((n,i)=>{let date=dateKey(dayDate(i));let done=!!state.done[date];let unlocked=isUnlocked(i);return `<button class="daypill ${selectedDay===i?'selected':''} ${done?'done':''} ${!unlocked?'locked':''}" onclick="selectDay(${i})" ${!unlocked?'title="Conclui os dias anteriores primeiro"':''}><b>${dayShort[i]}</b><span>${done?'✓':!unlocked?'🔒':dayDate(i).getDate()}</span></button>`}).join('')}
+function selectDay(i){if(!isUnlocked(i)){toast('Conclui primeiro os dias anteriores desta semana.');return}selectedDay=i;renderTraining();renderHome()}
+function renderHome(){let now=new Date();$('todayLabel').textContent=`${dayNames[(now.getDay()+6)%7].toUpperCase()} · UM PASSO DE CADA VEZ`;renderWeek('homeWeek');let i=(now.getDay()+6)%7;if(!isUnlocked(i))i=selectedDay;let d=state.plan[i];let key=dateKey(dayDate(i));let n=checkedCount(i);$('homeWorkout').innerHTML=`<div class="workouttop"><div class="workouticon">${d.icon}</div><div style="flex:1"><div class="eyebrow">${dayNames[i].toUpperCase()} · ${d.minutes?d.minutes+' MIN':'PAUSA'}</div><h3>${esc(d.title)}</h3><div class="tiny muted">${esc(d.subtitle)}</div></div><span class="chip">${state.done[key]?'CONCLUÍDO':n+'/'+d.items.length}</span></div><div class="progressbar" style="margin:14px 0 12px"><span style="width:${d.items.length?n/d.items.length*100:0}%"></span></div><button class="btn full" onclick="selectDay(${i});go('training')">${state.done[key]?'Rever treino':'Continuar treino'} →</button>`;renderStats()}
+function renderTraining(){renderWeek('trainWeek');let i=selectedDay,d=state.plan[i],key=dateKey(dayDate(i)),done=!!state.done[key],checked=state.doneExercises?.[key]||[];let unlocked=isUnlocked(i);$('workoutCard').innerHTML=`<div class="workouttop"><div class="workouticon">${d.icon}</div><div style="flex:1"><div class="eyebrow">${dayNames[i].toUpperCase()} · ${d.minutes?d.minutes+' MIN':'DESCANSO'}</div><h3>${esc(d.title)}</h3><div class="tiny muted">${esc(d.subtitle)}</div></div><button class="btn small secondary" onclick="editDayTitle(${i})">Editar</button></div><div class="divider"></div>${d.items.map(x=>`<div class="exercise"><input class="check" type="checkbox" ${checked.includes(x.id)?'checked':''} onchange="toggleExercise(${i},'${x.id}',this.checked)" aria-label="Concluir ${esc(x.name)}"><div style="flex:1;min-width:0"><div class="exname">${esc(x.name)}</div><div class="exmeta">${esc(x.sets)} série(s) · ${esc(x.reps)}${x.note?' · '+esc(x.note):''}</div></div><button class="edit" onclick="editExercise(${i},'${x.id}')" aria-label="Editar exercício">•••</button></div>`).join('')||'<div class="empty">Sem exercícios. Adiciona um para começar.</div>'}<div class="divider"></div><div style="display:flex;justify-content:space-between;margin-bottom:9px"><span class="tiny muted">Exercícios concluídos</span><b>${checked.length}/${d.items.length}</b></div><div class="progressbar"><span style="width:${d.items.length?checked.length/d.items.length*100:0}%"></span></div><button class="btn full" style="margin-top:15px" onclick="completeDay(${i})" ${!unlocked||(!allChecked(i)&&!done)?'disabled':''}>${done?'Dia concluído ✓':'Concluir dia e desbloquear o seguinte'}</button>${!unlocked?'<p class="tiny muted">🔒 Este dia fica disponível quando concluires os anteriores.</p>':''}<p class="tiny muted" style="margin-bottom:0;margin-top:12px">Podes adaptar repetições e exercícios ao teu nível. Se for demasiado difícil, escolhe uma variante mais fácil.</p>`;
+ renderLibrary()}
+function toggleExercise(i,id,on){let key=dateKey(dayDate(i));state.doneExercises=state.doneExercises||{};state.doneExercises[key]=state.doneExercises[key]||[];state.doneExercises[key]=on?[...new Set([...state.doneExercises[key],id])]:state.doneExercises[key].filter(x=>x!==id);if(state.done[key]&&!on)delete state.done[key];save();renderTraining();renderHome()}
+function completeDay(i){let key=dateKey(dayDate(i));if(state.done[key]){toast('Este dia já está concluído.');return}if(!allChecked(i)){toast('Marca os exercícios antes de concluir o dia.');return}state.done[key]=true;state.minutesByDate[key]=state.plan[i].minutes||0;save();toast('Dia concluído! Bom trabalho.');renderTraining();renderHome();renderProgress()}
+function renderLibrary(){let all=state.plan.flatMap((d,i)=>d.items.map(x=>({...x,day:i})));$('exerciseLibrary').innerHTML=all.length?all.slice(0,12).map(x=>`<div class="exercise"><div class="featureico" style="width:36px;height:36px;font-size:16px">✦</div><div style="flex:1"><div class="exname">${esc(x.name)}</div><div class="exmeta">${dayNames[x.day]} · ${esc(x.sets)} × ${esc(x.reps)}</div></div><button class="edit" onclick="editExercise(${x.day},'${x.id}')">Editar</button></div>`).join('')+(all.length>12?`<p class="tiny muted">A mostrar 12 de ${all.length} exercícios.</p>`:''):'<div class="empty">Ainda não tens exercícios.</div>'}
+function editDayTitle(i){let name=prompt('Nome do treino:',state.plan[i].title);if(name===null)return;if(!name.trim()){toast('O nome não pode ficar vazio.');return}state.plan[i].title=name.trim();let sub=prompt('Descrição curta:',state.plan[i].subtitle);if(sub!==null)state.plan[i].subtitle=sub.trim();save();renderTraining();renderHome()}
+function editExercise(i,id){let x=state.plan[i].items.find(e=>e.id===id);if(!x)return;$('dialogTitle').textContent='Editar exercício';$('editDay').value=i;$('editId').value=id;$('exTitle').value=x.name;$('exSets').value=x.sets;$('exReps').value=x.reps;$('exNote').value=x.note||'';$('exerciseDialog').showModal()}
+function addExercise(){ $('dialogTitle').textContent='Novo exercício';$('editDay').value=selectedDay;$('editId').value='';$('exTitle').value='';$('exSets').value='3';$('exReps').value='8–10';$('exNote').value='';$('exerciseDialog').showModal()}
+$('exerciseForm').addEventListener('submit',e=>{e.preventDefault();let i=Number($('editDay').value),id=$('editId').value;let obj={id:id||uid(),name:$('exTitle').value.trim(),sets:$('exSets').value,reps:$('exReps').value.trim(),note:$('exNote').value.trim()};if(!obj.name)return;if(id){let ix=state.plan[i].items.findIndex(x=>x.id===id);if(ix>=0)state.plan[i].items[ix]=obj}else state.plan[i].items.push(obj);state.doneExercises=state.doneExercises||{};Object.keys(state.doneExercises).forEach(k=>{state.doneExercises[k]=state.doneExercises[k].filter(x=>x!==id)});save();$('exerciseDialog').close();renderTraining();renderHome();toast('Exercício guardado.')});
+function deleteFromDialog(){let i=Number($('editDay').value),id=$('editId').value;if(!id){$('exerciseDialog').close();return}if(!confirm('Apagar este exercício?'))return;state.plan[i].items=state.plan[i].items.filter(x=>x.id!==id);if(state.doneExercises)Object.keys(state.doneExercises).forEach(k=>state.doneExercises[k]=state.doneExercises[k].filter(x=>x!==id));save();$('exerciseDialog').close();renderTraining();renderHome();toast('Exercício apagado.')}
+function renderHabits(){let key=todayKey(),checked=state.habitChecks[key]||[];$('habitList').innerHTML=state.habits.map(h=>`<div class="habit"><input class="check" type="checkbox" ${checked.includes(h.id)?'checked':''} onchange="toggleHabit('${h.id}',this.checked)" aria-label="${esc(h.name)}"><div style="flex:1"><b>${esc(h.name)}</b><small>${esc(h.note||'')}</small></div></div>`).join('')||'<div class="empty">Adiciona hábitos no futuro.</div>';let n=checked.length,total=state.habits.length;$('habitProgress').textContent=`${n} de ${total}`;$('habitBar').style.width=(total?n/total*100:0)+'%';renderStats()}
+function toggleHabit(id,on){let key=todayKey();state.habitChecks[key]=state.habitChecks[key]||[];state.habitChecks[key]=on?[...new Set([...state.habitChecks[key],id])]:state.habitChecks[key].filter(x=>x!==id);save();renderHabits()}
+function resetHabits(){if(!confirm('Desmarcar os hábitos de hoje?'))return;state.habitChecks[todayKey()]=[];save();renderHabits()}
+$('mealFile').addEventListener('change',e=>{let f=e.target.files?.[0];if(!f)return;if(f.size>2.5*1024*1024){toast('Escolhe uma imagem com menos de 2,5 MB.');e.target.value='';return}let r=new FileReader();r.onload=()=>{pendingPhoto=r.result;$('mealPreview').innerHTML=`<img src="${pendingPhoto}" alt="Pré-visualização da refeição">`};r.readAsDataURL(f)});
+function analyzeMeal(){
+ let name=$('mealName').value.trim();if(!name){toast('Escreve os alimentos para receber sugestões.');return}
+ let lower=name.toLocaleLowerCase('pt-PT');
+ let fruit=['maçã','banana','laranja','pera','uva','morango','fruta','salada','alface','tomate','cenoura','brócolos','legumes','espinafre','courgette','pepino'];
+ let carbs=['arroz','massa','pão','batata','aveia','cuscuz','milho','quinoa','cereal','torrada','wrap'];
+ let protein=['ovo','ovos','frango','peru','peixe','atum','salmão','carne','feijão','grão','lentilhas','tofu','iogurte','queijo','leite'];
+ let hasFruit=fruit.some(k=>lower.includes(k)),hasCarbs=carbs.some(k=>lower.includes(k)),hasProtein=protein.some(k=>lower.includes(k));
+ let suggestions=[];
+ if(hasFruit)suggestions.push('A descrição inclui fruta ou legumes — boa forma de acrescentar variedade.');else suggestions.push('Se fizer sentido e tiveres à mão, podes juntar fruta ou legumes para dar mais variedade.');
+ if(!hasCarbs)suggestions.push('Consoante a tua fome e atividade, pão, arroz, massa, batata ou aveia podem ajudar a fornecer energia.');
+ if(!hasProtein)suggestions.push('Podes considerar uma fonte de proteína de que gostes, como ovos, leguminosas, iogurte, peixe ou tofu.');
+ if(hasCarbs&&hasProtein&&hasFruit)suggestions.push('A descrição inclui vários grupos de alimentos. Continua a variar ao longo do dia e ajusta à tua fome e atividade.');
+ suggestions.push('Não precisas de compensar esta refeição nem de a classificar como boa ou má. O padrão ao longo do tempo é mais importante.');
+ $('mealFeedback').style.display='block';$('mealFeedback').innerHTML='<div class="card" style="background:#20271a;border-color:#3b4a2b"><div class="eyebrow">IDEIAS PARA ESTA REFEIÇÃO</div><h3 style="margin:8px 0 10px">Sugestões práticas</h3>'+suggestions.map(s=>'<div class="feature" style="margin:9px 0"><div class="featureico" style="width:30px;height:30px;font-size:15px">✓</div><p style="color:var(--text)">'+esc(s)+'</p></div>').join('')+'<p class="tiny muted">Sugestões simples baseadas nas palavras que escreveste — não é uma análise por IA nem uma avaliação nutricional completa.</p></div>';
+ state.meals.unshift({id:uid(),name,time:$('mealTime').value,notes:$('mealNotes').value.trim(),photo:pendingPhoto,date:new Date().toISOString(),feedback:suggestions});if(state.meals.length>30)state.meals=state.meals.slice(0,30);
+ try{save()}catch(e){toast('Sem espaço para guardar a foto. Tenta uma imagem menor.');state.meals.shift();return}
+ $('mealName').value='';$('mealNotes').value='';$('mealFile').value='';pendingPhoto='';$('mealPreview').innerHTML='<span><span style="font-size:30px">＋</span><br><span class="meal-label">Tirar ou escolher fotografia</span><br><span class="tiny muted">A imagem fica no teu dispositivo</span></span>';renderMeals();toast('Refeição guardada e sugestões preparadas.');
+}
+function renderMeals(){$('mealList').innerHTML=state.meals.length?state.meals.map(m=>`<div class="mealentry">${m.photo?`<img src="${m.photo}" alt="Foto da refeição" style="width:100%;max-height:180px;object-fit:cover;border-radius:13px;margin-bottom:9px">`:''}<div class="chip">${esc(m.time)}</div><div style="font-weight:800;margin:7px 0 3px">${esc(m.name)}</div>${m.notes?`<div class="tiny muted">${esc(m.notes)}</div>`:''}<div class="tiny muted" style="margin-top:6px">${new Date(m.date).toLocaleDateString('pt-PT')} · <button class="edit" onclick="deleteMeal('${m.id}')">Apagar</button></div></div>`).join(''):'<div class="empty">Ainda não há refeições registadas.<br><span class="tiny">Podes começar por guardar a próxima refeição.</span></div>'}
+function deleteMeal(id){state.meals=state.meals.filter(m=>m.id!==id);save();renderMeals();toast('Registo apagado.')}
+function renderStats(){let done=Object.keys(state.done||{}).length;let minutes=Object.values(state.minutesByDate||{}).reduce((a,b)=>a+(Number(b)||0),0);let active=new Set([...Object.keys(state.done||{}),...Object.entries(state.habitChecks||{}).filter(([k,v])=>v.length).map(([k])=>k)]).size;let hc=(state.habitChecks[todayKey()]||[]).length;$('statWorkouts').textContent=done;$('statMinutes').innerHTML=`${minutes} <small style="font-size:12px">min</small>`;$('statActive').textContent=active;$('statHabits').textContent=`${hc}/${state.habits.length}`}
+function renderProgress(){let done=Object.keys(state.done||{}).length,minutes=Object.values(state.minutesByDate||{}).reduce((a,b)=>a+(Number(b)||0),0);$('progDone').textContent=done;$('progMinutes').textContent=minutes;let ds=[];for(let i=6;i>=0;i--){let d=new Date();d.setDate(d.getDate()-i);let k=dateKey(d);let v=(state.minutesByDate[k]||0);ds.push({label:['D','S','T','Q','Q','S','S'][d.getDay()],v,active:k===todayKey()})}$('activityChart').innerHTML=ds.map(x=>`<div class="barcol"><div class="bar ${x.active?'today':''}" style="height:${Math.max(4,Math.min(95,x.v*2.5))}px"></div>${x.label}</div>`).join('');let badges=[['🌱','Começar','O primeiro passo conta',done>=1],['⚡','Consistência','3 treinos concluídos',done>=3],['🏆','Rotina criada','7 treinos concluídos',done>=7],['🧠','Cuidar de ti','Registar uma refeição',state.meals.length>=1]];$('achievements').innerHTML=badges.map(b=>`<div class="card ${b[3]?'':'locked'}"><div style="font-size:24px">${b[0]}</div><b>${b[1]}</b><div class="tiny muted">${b[2]}</div><div class="chip" style="margin-top:9px">${b[3]?'DESBLOQUEADA':'POR DESBLOQUEAR'}</div></div>`).join('')}
+function loadProfile(){$('userName').value=state.profile.name||'';$('ageGroup').value=state.profile.ageGroup||'teen';$('goal').value=state.profile.goal||'strength'}
+function saveProfile(){state.profile={name:$('userName').value.trim(),ageGroup:$('ageGroup').value,goal:$('goal').value};save();toast('Perfil guardado.');}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='disciplina-copia-seguranca.json';a.click();URL.revokeObjectURL(url);toast('Cópia de segurança preparada.')}
+$('importFile').addEventListener('change',e=>{let f=e.target.files?.[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.plan||!x.habits)throw Error();if(confirm('Importar substitui os dados atuais. Continuar?')){state=x;save();go('home');toast('Cópia importada.')}}catch(err){toast('Ficheiro inválido.')}e.target.value=''};r.readAsText(f)});
+function resetApp(){if(!confirm('Isto apaga os dados locais da DISCIPLINA e repõe o plano original. Exporta uma cópia primeiro, se precisares. Continuar?'))return;state=fresh();save();selectedDay=(new Date().getDay()+6)%7;go('home');toast('Aplicação reposta.')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('profileShortcut').onclick=()=>go('profile');
+renderHome();renderTraining();renderHabits();renderMeals();renderProgress();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body></html>

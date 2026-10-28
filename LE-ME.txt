@@ -1,0 +1,32 @@
+DISCIPLINA PRO — VERSÃO 1.1
+
+FUNCIONALIDADES
+- Interface mobile-first, dark mode e destaque verde-lima.
+- Início, treinos, diário alimentar, hábitos, locais para treinar, progresso e perfil.
+- Plano semanal de peso corporal; exercícios editáveis, marcações e desbloqueio sequencial.
+- Diário alimentar com foto local, texto livre e sugestões simples de variedade a partir das palavras introduzidas.
+- Links para pesquisar parques, piscinas, ginásios e percursos no Google Maps.
+- Indicadores de progresso, conquistas, perfil e exportar/importar cópia JSON.
+- PWA instalável e cache offline após primeira visita.
+- Português de Portugal.
+
+LIMITAÇÕES IMPORTANTES
+- Protótipo local: sem conta, sincronização ou servidor remoto.
+- As sugestões alimentares são regras simples baseadas no texto, não são IA nem aconselhamento nutricional individual.
+- A fotografia é guardada no diário, mas não é analisada automaticamente. Reconhecimento real por imagem requer integrar um serviço/modelo de IA num backend seguro. Não colocar chaves privadas num site público.
+- Links de locais abrem pesquisas externas; os resultados e localização são fornecidos pelo Google Maps, não pela app.
+- Dados guardados localmente no navegador; exporta uma cópia de segurança regularmente.
+- A instalação PWA e o modo offline completo exigem alojamento HTTPS.
+
+PUBLICAR GRATUITAMENTE COM GITHUB PAGES
+1. Cria/entra numa conta GitHub.
+2. Cria um repositório chamado disciplina-app.
+3. Extrai este ZIP e carrega TODOS os ficheiros para a raiz do repositório.
+4. Abre Settings > Pages.
+5. Em Build and deployment escolhe Deploy from a branch.
+6. Branch: main; pasta: /(root); carrega em Save.
+7. Aguarda a publicação e abre o endereço mostrado pelo GitHub Pages.
+8. No iPhone, abre o endereço no Safari > Partilhar > Adicionar ao ecrã principal.
+
+PRIVACIDADE
+A aplicação não envia o diário nem as fotografias para um servidor. Ao abrir os links de mapas, o serviço externo pode usar a localização de acordo com as respetivas definições.
